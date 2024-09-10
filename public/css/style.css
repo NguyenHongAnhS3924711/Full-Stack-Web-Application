@@ -1,0 +1,247 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.clear {
+  clear: both;
+}
+
+/* HEADER */
+#header {
+  height: 46.5px;
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  font-size: 14px;
+  z-index: 1;
+}
+
+/* Navigation */
+#nav {
+  display: inline-block;
+}
+
+#nav,
+.subnav {
+  list-style-type: none;
+}
+
+#nav {
+}
+
+#nav li {
+  position: relative;
+}
+
+#nav > li {
+  display: inline-block;
+}
+
+#nav li a {
+  text-decoration: none;
+  line-height: 46.5px;
+  padding: 0 24px;
+  display: block;
+}
+
+#nav > li > a {
+  color: white;
+  text-transform: uppercase;
+}
+
+#nav .subnav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  min-width: 160px;
+}
+
+#nav .subnav a {
+  color: #333;
+  padding: 0 12px;
+  line-height: 38px;
+}
+
+#nav li:hover .subnav {
+  display: block;
+}
+
+#nav > li:hover > a,
+#nav .subnav li:hover a {
+  color: black;
+  background-color: #ccc;
+}
+
+/* HOME PAGE */
+/* Content */
+#content {
+}
+
+#content .content-section {
+  width: 768px;
+  padding: 64px 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ABOUT US PAGE */
+/* PRICING PAGE */
+/* MY ACCOUNT PAGE */
+/* BROWSE PAGE */
+/* FAQ PAGE */
+/* CONTACT PAGE */
+/* FOOTER */
+footer {
+  background-color: #000;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  left: 0; 
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-nav ul li {
+  display: inline-block;
+}
+
+.footer-nav ul li a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 14px;
+}
+
+.footer-nav ul li a:hover {
+  text-decoration: underline;
+}
+
+footer li {
+  color: #6c757d;
+  font-size: 17px;
+}
+
+/* TERM OF SERVICE */
+/* Modal styling */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 700px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left; /* Align text to the left */
+  overflow-y: auto; /* Make content scrollable if it's too long */
+  max-height: 80vh; /* Ensure modal doesn't take the entire screen height */
+}
+
+/* Close button */
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #000;
+}
+
+.modal ul li{
+  list-style: none;
+}
+
+.modal .modal-content h2,
+.modal .modal-content h3 {
+  color: blue;
+}
+
+/* Section Headings */
+.modal-content h2 {
+  font-size: 1.8em;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modal-content h3 {
+  font-size: 1.4em;
+  color: #333;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Paragraph and List Styling */
+.modal-content p {
+  font-size: 1em;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.modal-content ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.modal-content ul li {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* Agree Button */
+#agreeButton {
+  display: block;
+  width: 100px;
+  padding: 10px;
+  margin: 20px auto;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1em;
+  text-align: center;
+}
+
+#agreeButton:hover {
+  background-color: #0056b3;
+}
