@@ -1,0 +1,102 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.clear {
+  clear: both;
+}
+
+/* HEADER */
+#header {
+  height: 46.5px;
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  font-size: 14px;
+  z-index: 1;
+}
+
+/* Navigation */
+#nav {
+  display: inline-block;
+}
+
+#nav,
+.subnav {
+  list-style-type: none;
+}
+
+#nav {
+}
+
+#nav li {
+  position: relative;
+}
+
+#nav > li {
+  display: inline-block;
+}
+
+#nav li a {
+  text-decoration: none;
+  line-height: 46.5px;
+  padding: 0 24px;
+  display: block;
+}
+
+#nav > li > a {
+  color: white;
+  text-transform: uppercase;
+}
+
+#nav .subnav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  min-width: 160px;
+}
+
+#nav .subnav a {
+  color: #333;
+  padding: 0 12px;
+  line-height: 38px;
+}
+
+#nav li:hover .subnav {
+  display: block;
+}
+
+#nav > li:hover > a,
+#nav .subnav li:hover a {
+  color: black;
+  background-color: #ccc;
+}
+
+/* HOME PAGE */
+/* Content */
+#content {
+}
+
+#content .content-section {
+  width: 768px;
+  padding: 64px 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ABOUT US PAGE */
+/* PRICING PAGE */
+/* MY ACCOUNT PAGE */
+/* BROWSE PAGE */
+/* FAQ PAGE */
+/* CONTACT PAGE */
