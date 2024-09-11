@@ -99,17 +99,24 @@ html {
 /* MY ACCOUNT PAGE */
 /* BROWSE PAGE */
 /* FAQ PAGE */
+
 /* CONTACT PAGE */
+/* PREVENT FROM THE FOOTER OVERLAP THE CONTENT */
+.container {
+  padding-bottom: 70px; /* Adjust this value based on footer height */
+}
+
 /* FOOTER */
 footer {
   background-color: #000;
   padding: 20px 0;
   text-align: center;
   width: 100%;
-  position: absolute;
-  z-index: 10;
+  position: fixed;
   bottom: 0;
-  left: 0; 
+  left: 0;
+  z-index: 10;
+  height: 60px; /* Explicit height for the footer */
 }
 
 .footer-content {

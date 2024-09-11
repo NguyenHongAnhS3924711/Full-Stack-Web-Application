@@ -1,6 +1,96 @@
 <%- include('header.html') -%>
 
-<p>This is contact
-     view</p>
+<div class="container mt-5">
+     <h2>Contact Us</h2>
+     <form id="contactForm" method="POST">
+         <!-- Contact Purpose -->
+         <div class="form-group">
+             <label for="contactPurpose">Contact Purpose</label>
+             <select class="form-control" id="contactPurpose" required>
+                 <option value="general">General Inquiry</option>
+                 <option value="support">Support</option>
+                 <option value="feedback">Feedback</option>
+                 <option value="other">Other</option>
+             </select>
+         </div>
+
+         <!-- Name -->
+         <div class="form-group">
+             <label for="name">Name</label>
+             <input type="text" class="form-control" id="name" placeholder="Enter your name" required minlength="3">
+         </div>
+
+         <!-- Email -->
+         <div class="form-group">
+             <label for="email">Email</label>
+             <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+         </div>
+
+         <!-- Phone -->
+         <div class="form-group">
+             <label for="phone">Phone (Optional)</label>
+             <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number">
+             <small class="form-text text-muted">Phone number must be between 9 and 11 digits and contain only numbers.</small>
+         </div>
+
+         <!-- Preferred Contact Method -->
+         <div class="form-group">
+             <label>Preferred Contact Method</label><br>
+             <div class="form-check form-check-inline">
+                 <input class="form-check-input" type="radio" name="preferredContact" id="contactEmail" value="email" required>
+                 <label class="form-check-label" for="contactEmail">Email</label>
+             </div>
+             <div class="form-check form-check-inline">
+                 <input class="form-check-input" type="radio" name="preferredContact" id="contactPhone" value="phone" required>
+                 <label class="form-check-label" for="contactPhone">Phone</label>
+             </div>
+         </div>
+
+         <!-- Contact Days -->
+         <div class="form-group">
+          <label>Contact Days</label><br>
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="monday" value="Monday">
+              <label class="form-check-label" for="monday">Monday</label>
+          </div>
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="tuesday" value="Tuesday">
+              <label class="form-check-label" for="tuesday">Tuesday</label>
+          </div>
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="wednesday" value="Wednesday">
+              <label class="form-check-label" for="wednesday">Wednesday</label>
+          </div>
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="thursday" value="Thursday">
+              <label class="form-check-label" for="thursday">Thursday</label>
+          </div>
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="friday" value="Friday">
+              <label class="form-check-label" for="friday">Friday</label>
+          </div>
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="saturday" value="Saturday">
+              <label class="form-check-label" for="saturday">Saturday</label>
+          </div>
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="sunday" value="Sunday">
+              <label class="form-check-label" for="sunday">Sunday</label>
+          </div>
+      </div>
+
+         <!-- Message -->
+         <div class="form-group">
+             <label for="message">Message</label>
+             <textarea class="form-control" id="message" rows="4" placeholder="Write your message here" required minlength="50" maxlength="500"></textarea>
+         </div>
+
+         <!-- Buttons -->
+         <div class="form-group">
+             <button type="reset" class="btn btn-secondary">Clear</button>
+             <button type="submit" class="btn btn-primary">Send</button>
+         </div>
+     </form>
+ </div>
 
 <%- include('footer.html') -%>
