@@ -26,10 +26,24 @@ const loginUser = async (req, res) => {
       fullName: user.fullName,
       email: user.email,
       phoneNumber: user.phoneNumber,
-      profilePicture: user.profilePicture
+      profilePicture: user.profilePicture,
+      role: user.role // Store the user role in session
     };
 
-    res.redirect('/user-profile');
+    // Role-based redirection
+    switch (user.role) {
+      case 'admin':
+        res.redirect('/admin-profile');
+        break;
+      case 'instructor':
+        res.redirect('/instructor-profile');
+        break;
+      case 'user':
+        res.redirect('/user-profile');
+        break;
+      default:
+        res.redirect('/user-profile'); // Default redirection
+    }
   } catch (error) {
     console.error(error);
     res.status(500).send('Internal Server Error');

@@ -1,3 +1,26 @@
+// REGISTER
+document.addEventListener('DOMContentLoaded', function () {
+  const accountTypeRadios = document.querySelectorAll('input[name="accountType"]');
+  const instructorFields = document.getElementById('instructorFields');
+
+  accountTypeRadios.forEach(radio => {
+      radio.addEventListener('change', function () {
+          if (document.getElementById('instructor').checked) {
+              instructorFields.style.display = 'block';
+          } else {
+              instructorFields.style.display = 'none';
+          }
+      });
+  });
+
+  // Ensure the initial state is correct
+  if (document.getElementById('instructor').checked) {
+      instructorFields.style.display = 'block';
+  } else {
+      instructorFields.style.display = 'none';
+  }
+});
+
 // Modal for ToS and Privacy Policy
 document.addEventListener("DOMContentLoaded", function () {
   var termsModal = document.getElementById("termsModal");
