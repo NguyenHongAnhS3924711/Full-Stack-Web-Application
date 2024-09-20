@@ -7,11 +7,16 @@ const userRoutes = require('./routes/userRoutes'); // Import user routes
 const { loginUser } = require('./controllers/authController'); // Import login function
 const isAuthenticated = require('./authMiddleware'); // Import authentication middleware
 const cors = require('cors');
+const homeRoutes = require('./routes/homeRoutes'); // Update the path as necessary
+const browseRoutes = require('./routes/browseRoutes');
 
 const app = express();
 
 // Middleware for parsing form data
 app.use(express.urlencoded({ extended: true }));
+
+// Use course routes
+app.use('/api', browseRoutes); // Mount the routes under '/api'
 
 const corsOptions = {
   origin: 'http://localhost:3000', // Adjust to your front-end origin
@@ -26,22 +31,17 @@ app.use((req, res, next) => {
     default-src 'none';
     script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net https://unpkg.com;
     style-src 'self' https://cdn.jsdelivr.net https://stackpath.bootstrapcdn.com 'unsafe-inline';
-    img-src 'self' data: http://www.webcoderskull.com;  // Allow images from your domain and data URIs
-    font-src 'self' http://localhost:3000;  // Allow fonts from your server
+    img-src 'self' data: http://www.webcoderskull.com;
+    font-src 'self' http://localhost:3000 https://localhost:3000/assets/fonts;
     connect-src 'self';
     frame-src 'self';
-  `.replace(/\s{2,}/g, ' ')); // Replace multiple spaces with a single space
+  `.replace(/\s{2,}/g, ' ')); 
   next();
 });
 
 app.use((req, res, next) => {
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
   next();
-});
-
-app.get('/proxy/libphonenumber-js.min.js', (req, res) => {
-  const url = 'https://example.com/path/to/libphonenumber-js.min.js';
-  req.pipe(request(url)).pipe(res);
 });
 
 // Set up session middleware
@@ -76,6 +76,9 @@ app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
 app.get("/", function (req, res) {
   res.render("home"); // Renders views/home.html
 });
+
+// Use routes
+app.use('/', homeRoutes); // Home routes
 
 // Route for About Us Page
 app.get("/about", function (req, res) {
@@ -117,7 +120,6 @@ app.get('/user-profile', isAuthenticated, (req, res) => {
     fullName: req.session.user.fullName,
     email: req.session.user.email,
     phoneNumber: req.session.user.phoneNumber,
-    profilePicture: req.session.user.profilePicture
   });
 });
 
@@ -127,7 +129,6 @@ app.get('/instructor-profile', isAuthenticated, (req, res) => {
     fullName: req.session.user.fullName,
     email: req.session.user.email,
     phoneNumber: req.session.user.phoneNumber,
-    profilePicture: req.session.user.profilePicture
   });
 });
 
@@ -137,7 +138,6 @@ app.get('/admin-profile', isAuthenticated, (req, res) => {
     fullName: req.session.user.fullName,
     email: req.session.user.email,
     phoneNumber: req.session.user.phoneNumber,
-    profilePicture: req.session.user.profilePicture
   });
 });
 
@@ -177,7 +177,6 @@ app.get('/logout', (req, res) => {
     res.redirect('/login');
   });
 });
-
 
 // Start the server
 if (!module.parent) {

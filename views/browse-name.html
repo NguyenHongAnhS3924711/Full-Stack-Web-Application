@@ -1,0 +1,20 @@
+<%- include('header.html') -%>
+
+<div class="container">
+  <h2>Browse Courses by Name</h2>
+  <div class="row">
+    <% courses.forEach(course => { %>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="<%= course.logo %>" class="card-img-top" alt="<%= course.courseName %>">
+          <div class="card-body">
+            <h5 class="card-title"><a href="/course/<%= course._id %>"><%= course.courseName %></a></h5>
+            <p class="card-text">$<%= course.price.toFixed(2) %></p>
+          </div>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</div>
+
+<%- include('footer.html') -%>

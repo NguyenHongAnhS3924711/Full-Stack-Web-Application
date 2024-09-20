@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const Schema = mongoose.Schema;
 
+// Define User Schema
 const userSchema = new Schema({
   fullName: { type: String, required: true },
   email: { type: String, required: true, unique: true, lowercase: true, trim: true },
@@ -14,9 +15,13 @@ const userSchema = new Schema({
   role: { type: String, enum: ['admin', 'instructor', 'user'], default: 'user' },
   schoolName: { type: String, default: '' },
   jobTitle: { type: String, default: '' },
-  specialization: { type: [String], default: [] }
+  specialization: { type: [String], default: [] },
+
+  // Array of course names offered by the instructor
+  courses: [{ type: String }] // Change to an array of strings
 }, { collection: 'Users' });
 
+// Password hashing logic
 userSchema.pre('save', async function(next) {
   try {
     if (this.isModified('password')) {
@@ -28,10 +33,11 @@ userSchema.pre('save', async function(next) {
   }
 });
 
+// Compare password method
 userSchema.methods.comparePassword = async function(candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);
 };
 
+// Create and export the User model
 const User = mongoose.model('User', userSchema);
-
 module.exports = User;

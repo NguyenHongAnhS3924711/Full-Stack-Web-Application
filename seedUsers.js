@@ -5,13 +5,13 @@ const User = require('./models/user'); // Adjust the path if necessary
 // MongoDB URI
 const dbURI = 'mongodb://localhost:27017/Learning'; // Replace with your MongoDB URI
 
-// Sample users with updated schema
+// Sample users without profile images
 const users = [
+  // 1 Admin
   {
     fullName: 'Emily Davis',
     email: 'emily.davis@example.com',
     phoneNumber: '1234567891',
-    profilePicture: '/assets/images/emilyAvatar.png',
     password: 'securepassword1',
     address: '123 Elm Street',
     city: 'Springfield',
@@ -19,11 +19,11 @@ const users = [
     country: 'USA',
     role: 'admin' // Assigning role as admin
   },
+  // 6 Instructors
   {
     fullName: 'Michael Brown',
     email: 'michael.brown@example.com',
     phoneNumber: '0987654322',
-    profilePicture: '/assets/images/michaelAvatar.png',
     password: 'securepassword2',
     address: '456 Oak Avenue',
     city: 'Springfield',
@@ -32,13 +32,89 @@ const users = [
     role: 'instructor',
     schoolName: 'Springfield University',
     jobTitle: 'Professor',
-    specialization: ['Math', 'Science'] // Assuming specialization is an array
+    specialization: ['Math', 'Science'],
+    courses: ['Algebra 101', 'Physics for Engineers'] // Example courses
   },
+  {
+    fullName: 'John Smith',
+    email: 'john.smith@example.com',
+    phoneNumber: '1112223333',
+    password: 'securepassword5',
+    address: '789 Birch Road',
+    city: 'Springfield',
+    zipcode: '33456',
+    country: 'USA',
+    role: 'instructor',
+    schoolName: 'Springfield High School',
+    jobTitle: 'Teacher',
+    specialization: ['History', 'Geography'],
+    courses: ['World History', 'Geography of the Americas'] // Example courses
+  },
+  {
+    fullName: 'Alice Johnson',
+    email: 'alice.johnson@example.com',
+    phoneNumber: '2223334444',
+    password: 'securepassword6',
+    address: '123 Cedar Lane',
+    city: 'Springfield',
+    zipcode: '44567',
+    country: 'USA',
+    role: 'instructor',
+    schoolName: 'Springfield College',
+    jobTitle: 'Lecturer',
+    specialization: ['Physics', 'Chemistry'],
+    courses: ['Introduction to Quantum Mechanics', 'Organic Chemistry'] // Example courses
+  },
+  {
+    fullName: 'Ethan Walker',
+    email: 'ethan.walker@example.com',
+    phoneNumber: '3334445555',
+    password: 'securepassword7',
+    address: '987 Willow Road',
+    city: 'Springfield',
+    zipcode: '55678',
+    country: 'USA',
+    role: 'instructor',
+    schoolName: 'Springfield University',
+    jobTitle: 'Assistant Professor',
+    specialization: ['Computer Science', 'Engineering'],
+    courses: ['Data Structures and Algorithms', 'Introduction to Robotics'] // Example courses
+  },
+  {
+    fullName: 'Grace Martinez',
+    email: 'grace.martinez@example.com',
+    phoneNumber: '4445556666',
+    password: 'securepassword8',
+    address: '321 Pine Avenue',
+    city: 'Springfield',
+    zipcode: '66789',
+    country: 'USA',
+    role: 'instructor',
+    schoolName: 'Springfield Technical Institute',
+    jobTitle: 'Instructor',
+    specialization: ['Mechanical Engineering', 'Robotics'],
+    courses: ['Advanced Mechanics', 'Introduction to Automation'] // Example courses
+  },
+  {
+    fullName: 'Henry Wilson',
+    email: 'henry.wilson@example.com',
+    phoneNumber: '5556667777',
+    password: 'securepassword9',
+    address: '654 Maple Drive',
+    city: 'Springfield',
+    zipcode: '77890',
+    country: 'USA',
+    role: 'instructor',
+    schoolName: 'Springfield Academy',
+    jobTitle: 'Senior Lecturer',
+    specialization: ['Biology', 'Environmental Science'],
+    courses: ['Ecology', 'Marine Biology'] // Example courses
+  },
+  // 3 Normal Users
   {
     fullName: 'Sarah Wilson',
     email: 'sarah.wilson@example.com',
     phoneNumber: '1122334466',
-    profilePicture: '/assets/images/sarahAvatar.png',
     password: 'securepassword3',
     address: '789 Pine Road',
     city: 'Springfield',
@@ -50,11 +126,21 @@ const users = [
     fullName: 'Daniel Lee',
     email: 'daniel.lee@example.com',
     phoneNumber: '2233445566',
-    profilePicture: '/assets/images/danielAvatar.png',
     password: 'securepassword4',
     address: '101 Maple Street',
     city: 'Springfield',
     zipcode: '44556',
+    country: 'USA',
+    role: 'user'
+  },
+  {
+    fullName: 'Laura Thompson',
+    email: 'laura.thompson@example.com',
+    phoneNumber: '3344556677',
+    password: 'securepassword10',
+    address: '456 Oak Drive',
+    city: 'Springfield',
+    zipcode: '55667',
     country: 'USA',
     role: 'user'
   }
@@ -84,7 +170,7 @@ async function seedDB() {
     }));
 
     await User.insertMany(hashedUsers);
-    console.log('Sample users with updated schema added to database');
+    console.log('Sample users without profile images added to database');
 
     mongoose.disconnect();
   } catch (err) {
