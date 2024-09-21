@@ -16,8 +16,6 @@ const userSchema = new Schema({
   schoolName: { type: String, default: '' },
   jobTitle: { type: String, default: '' },
   specialization: { type: [String], default: [] },
-
-  // Array of course names offered by the instructor
   courses: [{ type: String }] // Change to an array of strings
 }, { collection: 'Users' });
 
