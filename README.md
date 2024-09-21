@@ -77,4 +77,4 @@ nodemon .\app.js
    - Possible Cause: Incorrect configuration of the Nodemailer email service
 ---
 ## Contribution:
-- Nguyen Hong Anh - s3924711: 100%
+- Nguyen Hong Anh - s3924711: 100% - 7 Points
