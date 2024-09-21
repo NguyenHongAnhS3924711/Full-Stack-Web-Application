@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
-const Course = require('./models/course'); // Adjust the path if necessary
+const Course = require('./models/course');
 
 // MongoDB URI
-const dbURI = 'mongodb://localhost:27017/Learning'; // Replace with your MongoDB URI
+const dbURI = 'mongodb://localhost:27017/Learning';
 
-// Sample courses with categories
+// Sample courses
 const courses = [
   {
     courseName: 'Introduction to Programming',

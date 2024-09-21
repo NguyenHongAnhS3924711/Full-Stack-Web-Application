@@ -1,5 +1,5 @@
 const express = require('express');
-const Course = require('../models/course'); // Adjust the path if necessary
+const Course = require('../models/course');
 const router = express.Router();
 
 // Route to browse courses by name

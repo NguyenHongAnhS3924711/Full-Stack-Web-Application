@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user'); // Update the path as necessary
-const Course = require('../models/course'); // Update the path as necessary
+const User = require('../models/user');
+const Course = require('../models/course');
 
 // Route to fetch instructors and courses
 router.get('/home', async (req, res) => {
