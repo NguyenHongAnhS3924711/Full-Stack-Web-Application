@@ -2,7 +2,7 @@
 ## Project overview
 This project is an online learning platform developed using Node.js with Express as the server framework, and MongoDB as the primary database for user information. It provides user authentication, course management, and a user-friendly interface for both instructors and learners.
 ## Video demostration
-This video provides an overview of how the platform works, including course browsing and user authentication: [Video]().
+This video provides an overview of how the platform works, including course browsing and user authentication: [Video](https://youtu.be/x0QU3cGms2M).
 
 ---
 
